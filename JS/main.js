@@ -1,3 +1,4 @@
+
 let openNav = document.querySelector("#openNav");
 let exitNav = document.querySelector("#exitNav");
 let aside = document.querySelector("aside");
@@ -158,6 +159,59 @@ let timDownFunc = setInterval(function() {
   // Display the result in the element in Document :
   countTimer.innerHTML = `-${days}d : ${hours}h : ${minutes}m : ${seconds}s`;
 }, 1000);
+
+
+
+
+
+
+
+//Todo Display NavBar during Scroll Top  or Y Axis :
+$(window).scroll(function(){
+  let stopScroll = $("#sliderDown").offset().top;
+  let windowOffset = $(window).scrollTop();
+  if(windowOffset > stopScroll -50){
+    $("#navBarLink").fadeOut(500)
+    // $("#navBarLink").slideUp(500);
+
+    $("#btnUp").fadeIn(500);
+  }else {
+    $("#navBarLink").fadeIn(500)
+    // $("#navBarLink").slideDown(500);
+
+    $("#btnUp").fadeOut(500);
+  }
+})
+
+
+
+//Todo Display Btn Up  during Scroll Top  or Y Axis :
+$("#btnUp").click(function(){
+  $(window).scrollTop(0);
+})
+
+
+
+//Todo Display Loading Page during Download document Page :
+$(document).ready(function(){
+  $(".loader").fadeOut(1000 , function (){
+    $("#loadingScreen").slideUp(1000);
+    // $("body").css({"overflow" :"auto"})
+    $("body").css("overflow" ,"auto")
+  });
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
